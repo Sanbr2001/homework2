@@ -1,3 +1,4 @@
+import model.Cat;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -10,5 +11,15 @@ public class AppConfig {
         HelloWorld helloWorld = new HelloWorld();
         helloWorld.setMessage("Hello World!");
         return helloWorld;
+    }
+
+    @Bean
+    @Scope("prototype")
+    public Cat cat() {
+        Cat cat = new Cat();
+        cat.setName("Tom");
+        cat.setAge(3);
+        cat.setBreed("Maine Coon");
+        return cat;
     }
 }
